@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ritesh Honule</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Manrope) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Favicon (using one from your original assets) -->
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/riteshhonule/riteshhonule/main/assets/images/favicon.png"
+        type="image/x-png">
+
+    <style>
+        /* Custom styles for the premium look */
+        :root {
+            --bg-color-start: #0a001a;
+            --bg-color-mid: #1e003d;
+            --bg-color-end: #0a001a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #f0e7ff;
+            --text-secondary: #a79abf;
+            --accent-primary: #c084fc;
+            /* purple-400 */
+            --accent-secondary: #f472b6;
+            /* pink-400 */
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-color-start);
+            color: var(--text-primary);
+            background-image: linear-gradient(135deg, var(--bg-color-start) 0%, var(--bg-color-mid) 50%, var(--bg-color-end) 100%);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+        }
+
+        /* Animated gradient background */
+        @keyframes gradient-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Reusable Glassmorphism Card Style */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            /* 24px */
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background-image: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Scroll-reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Active Nav Link Style */
+        .nav-link.active {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color-start);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* Typing cursor for hero section */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: var(--accent-primary);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+            <div class="glass-card !rounded-full !px-6 !py-3">
+                <div class="flex justify-between items-center">
+                    <!-- Logo -->
+                    <a href="#home" class="text-2xl font-bold gradient-text">
+                        Ritesh
+                    </a>
+
+                    <!-- Desktop Nav -->
+                    <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                        <a href="#home" class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="home">Home</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="about">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="skills">Skills</a>
+                        <a href="#education"
+                            class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="education">Education</a>
+                        <a href="#work" class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="work">Work</a>
+                        <a href="#experience"
+                            class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="experience">Experience</a>
+                        <a href="#contact"
+                            class="nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                            data-section="contact">Contact</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-4 right-4 z-40">
+            <div class="glass-card !rounded-2xl p-6">
+                <div class="flex flex-col space-y-4 text-center">
+                    <a href="#home"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="home">Home</a>
+                    <a href="#about"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="about">About</a>
+                    <a href="#skills"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="skills">Skills</a>
+                    <a href="#education"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="education">Education</a>
+                    <a href="#work"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="work">Work</a>
+                    <a href="#experience"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="experience">Experience</a>
+                    <a href="#contact"
+                        class="nav-link mobile-nav-link text-gray-300 hover:text-white transition-colors duration-200"
+                        data-section="contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-24 md:pt-0">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <!-- Text Content -->
+                <div class="text-center md:text-left reveal reveal-active">
+                    <h2 class="text-4xl lg:text-5xl font-semibold text-gray-200">Hi There,</h2>
+                    <h1 class="text-5xl lg:text-7xl font-bold mt-2">I'm <span class="gradient-text">Ritesh Honule</span>
+                    </h1>
+                    <p class="text-2xl lg:text-3xl text-gray-300 mt-4">
+                        I am into <span id="typing-text" class="font-semibold text-white"></span><span
+                            class="typing-cursor"></span>
+                    </p>
+                    <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                        <a href="#about"
+                            class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            About Me <i class="fas fa-arrow-circle-down ml-2"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1s7EWLat9JaKRosTygcBdbgbKjXCVurP0/view?usp=sharing"
+                            target="_blank"
+                            class="px-6 py-3 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transform hover:scale-105 transition-all duration-300">
+                            Resume <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 flex justify-center md:justify-start space-x-6">
+                        <a href="https://www.linkedin.com/in/ritesh-honule-1b8976285/?originalSubdomain=in"
+                            target="_blank"
+                            class="text-gray-400 hover:text-purple-400 text-3xl transition-colors duration-200"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/riteshhonule/riteshhonule" target="_blank"
+                            class="text-gray-400 hover:text-purple-400 text-3xl transition-colors duration-200"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/crypto_rack/" target="_blank"
+                            class="text-gray-400 hover:text-purple-400 text-3xl transition-colors duration-200"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="mailto:riteshhonule@gmail.com"
+                            class="text-gray-400 hover:text-purple-400 text-3xl transition-colors duration-200"><i
+                                class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="flex justify-center items-center reveal reveal-active" style="transition-delay: 200ms;">
+                    <div class="relative w-80 h-80 lg:w-96 lg:h-96">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-2xl opacity-50 animate-pulse">
+                        </div>
+                        <img src="assets/images/profile-modified.png" alt="Ritesh Honule"
+                            class="relative z-10 w-full h-full object-cover rounded-full filter  hover:grayscale-0 transition-all duration-500"
+                            onerror="this.src='https://placehold.co/400x400/1e003d/f0e7ff?text=Ritesh'; this.onerror=null;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Heading Utility -->
+        <div id="section-heading" class="text-center mb-12 lg:mb-16 reveal">
+            <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">
+                <!-- JS will populate this -->
+            </h2>
+            <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">
+                <!-- JS will populate this -->
+            </p>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 lg:py-32">
+            <div class="reveal text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">About Me</h2>
+            </div>
+            <div class="glass-card p-8 md:p-12 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="assets/images/aboutimg.png" alt="About"
+                            class="w-64 h-64 lg:w-80 lg:h-80 object-contain"
+                            onerror="this.src='https://placehold.co/320x320/ffffff/1e003d?text=About+Me'; this.onerror=null;">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <h3 class="text-3xl font-bold text-white">I'm Ritesh</h3>
+                        <p class="text-xl font-semibold gradient-text mt-1">Full Stack Developer | Python Developer |
+                            BlockChain Developer</p>
+                        <p class="text-gray-300 mt-4 text-base lg:text-lg leading-relaxed">
+                            Aspiring and dedicated Full Stack Developer with hands-on experience at the Olympiad
+                            Examination Council (OEC).
+                            Specialized in React for front-end and Django/Python for back-end, with strong command over
+                            HTML5, CSS3, JavaScript, PHP, and MySQL.
+                            Experienced in building responsive web applications, server-side management, and secure
+                            payment gateway integration.
+                            Recently explored Blockchain Development using Solidity, Web3.js, Flask, SQLite, Ethereum
+                            Sepolia Testnet, and MetaMask for decentralized application (DApp) projects.
+                            Passionate about crafting user-friendly, scalable, and innovative digital solutions.
+                        </p>
+                        <div class="mt-6 border-t border-white/10 pt-6 text-gray-300 space-y-2">
+                            <p><i class="fas fa-phone-alt w-5 text-purple-400 mr-2"></i> +91 8861220023</p>
+                            <p><i class="fas fa-envelope w-5 text-purple-400 mr-2"></i> riteshhonule@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt w-5 text-purple-400 mr-2"></i> Belgaum, Karnataka, India
+                                - 590014</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 lg:py-32">
+            <div class="reveal text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">Skills & Abilities</h2>
+            </div>
+            <div id="skills-container"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                <!-- Skills will be dynamically injected here by JS -->
+            </div>
+        </section>
+
+        <!-- Journey Section (Experience & Education) -->
+        <section id="education" class="py-24 lg:py-32">
+            <div class="reveal text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">My Education</h2>
+                <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">Education is not the learning of facts, but the
+                    training of the mind to think.</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-16">
+                <!-- Education Column -->
+                <div class="reveal max-w-3xl mx-auto w-full">
+                    <h3 class="text-3xl font-bold text-white mb-8 flex items-center justify-center"><i
+                            class="fas fa-graduation-cap text-pink-400 mr-4"></i> Education</h3>
+                    <div class="relative pl-8 border-l-2 border-pink-400/30 space-y-10">
+                        <!-- Timeline Item 1 -->
+                        <!-- <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Master Of Computer Apllication</h4>
+                                <p class="gradient-text font-medium">KLE Dr MS Sheshgiri College (KLECET)</p>
+                                <p class="text-sm text-gray-400 mt-1">2024-2025 | Completed</p>
+                            </div>
+                        </div> -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900">
+                            </span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">
+                                    Master of Computer Application (MCA)
+                                </h4>
+                                <p class="gradient-text font-medium">
+                                    KLE Dr. M.S. Sheshgiri College of Engineering and Technology (KLECET)
+                                </p>
+                                <p class="text-sm text-gray-400 mt-1">2024–2025 | Completed</p>
+                                <p class="text-sm font-semibold text-pink-400 mt-1">🎯 CGPA: <span
+                                        class="text-white">9.28</span>
+
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Bachelor Degree</h4>
+                                <p class="gradient-text font-medium">Rani Parvati Devi College | Belgaum</p>
+                                <p class="text-sm text-gray-400 mt-1">2020-2023 | Completed</p>
+                                <p class="text-sm font-semibold text-pink-400 mt-1">🎯 CGPA: <span
+                                        class="text-white">8.32</span>
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 3 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Secondary Education</h4>
+                                <p class="gradient-text font-medium">Rani Parvati Devi College | Belgaum</p>
+                                <p class="text-sm text-gray-400 mt-1">2018-2020 | Completed</p>
+                                <p class="text-sm font-semibold text-pink-400 mt-1">🎯 Percentage: <span
+                                        class="text-white">80 %</span>
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Timeline Item (SSLC) -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900">
+                            </span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">SSLC
+                                </h4>
+                                <p class="gradient-text font-medium">Thalakwadi High School | Tilakwadi, Belgaum</p>
+                                <p class="text-sm text-gray-400 mt-1">2016–2018 | Completed</p>
+                                <p class="text-sm font-semibold text-pink-400 mt-1">
+                                    🎯 Percentage: <span class="text-white">85%</span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work / Projects Section -->
+        <section id="work" class="py-24 lg:py-32">
+            <div class="reveal text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">Projects Made</h2>
+                <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">A selection of my work.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project: Vote Chori Prevention DApp -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 850ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/votechori.png" alt="Vote Chori Prevention DApp"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">Vote Chori Prevention DApp 🗳️</h3>
+                        <p class="text-gray-300 mt-2 h-24">
+                            A Blockchain-powered decentralized voting system ensuring <span
+                                class="text-white font-semibold">tamper-proof, transparent, and secure</span> elections.
+                            Developed using <span class="text-pink-400">Solidity</span>, <span
+                                class="text-blue-400">Web3.js</span>,
+                            <span class="text-yellow-400">Flask</span>, <span class="text-purple-400">SQLite</span>,
+                            and integrated with <span class="text-indigo-400">MetaMask</span> on the
+                            <span class="text-emerald-400">Ethereum Sepolia Testnet</span>.
+                        </p>
+
+                        <div class="mt-16 flex space-x-4">
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a> -->
+                            <a href="https://github.com/riteshhonule/VOTE-DAPP"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 1: Exam Portal -->
+                <div class="glass-card overflow-hidden group reveal">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/exam_portal.png" alt="Exam Portal"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Exam Portal</h3>
+                        <p class="text-gray-300 mt-2 h-24">A full-stack web application built using PHP for
+                            managing online exams, including student registration, question management, and real-time
+                            result generation.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="https://olympiadexamination.org/"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2: Live Payment Integration -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 150ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/live_payment.png" alt="Live Payment Integration"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Live Payment Integration</h3>
+                        <p class="text-gray-300 mt-2 h-24">Implemented a secure payment gateway integration in a
+                            Django-based web application, allowing users to make real-time transactions via
+                            Razorpay/PayPal/Stripe.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="https://olympiadexamination.org/"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3: Facelock Security system -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 300ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/facelock2.jpg" alt="Facelock Security system"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Facelock Security system</h3>
+                        <p class="text-gray-300 mt-2 h-24">A Python project using OpenCV to detect faces in real-time
+                            from a webcam and create a structured dataset of captured images.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a> -->
+                            <a href="https://github.com/riteshhonule/facelock_security_sysytem_py"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4: Simple Calculator -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 450ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/calculator.png" alt="Simple Calculator"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Simple Calculator</h3>
+                        <p class="text-gray-300 mt-2 h-24">A simple C program that performs basic arithmetic operations
+                            using a switch case and runs continuously until exited by the user.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a> -->
+                            <a href="https://github.com/riteshhonule/Simple-Calculator---C"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5: Stone-paper-scissors Game -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 600ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/stone.png" alt="Stone-paper-scissors Game"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Stone-paper-scissors Game - C</h3>
+                        <p class="text-gray-300 mt-2 h-24">A Stone, Paper, Scissors game using the C programming
+                            language, where you play against the computer with randomized choices.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a> -->
+                            <a href="https://github.com/riteshhonule/Stone-paper-scissors_Game"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 6: Bank Management System -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 750ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/bank.png" alt="Bank Management System"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Bank Management System - C</h3>
+                        <p class="text-gray-300 mt-2 h-24">A simple C-based Bank Management System for managing
+                            deposits, withdrawals, transfers, and viewing account details with transaction history.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <!-- <a href="#"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a> -->
+                            <a href="https://github.com/riteshhonule/Bank-Management-System---C"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 7 (Portfolio) -->
+                <div class="glass-card overflow-hidden group reveal" style="transition-delay: 900ms;">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/projects/portfolio_website.png" alt="Portfolio Website"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
+                            onerror="this.src='https://placehold.co/600x400/1e003d/f0e7ff?text=Portfolio'; this.onerror=null;">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Portfolio Website</h3>
+                        <p class="text-gray-300 mt-2 h-24">Personal Portfolio Website (You are here!) — built with
+                            modern design principles using HTML, CSS, vanilla JS, and Tailwind CSS. Features a sleek
+                            glassmorphic UI, smooth animations, and responsive layout.</p>
+                        <div class="mt-12 flex space-x-4">
+                            <a href="#home"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                            <!-- <a href="https://github.com/riteshhonule/riteshhonule" target="_blank"
+                                class="px-5 py-2 bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                                <i class="fab fa-github mr-2"></i> Code
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Certifications Section -->
+        <section id="experience" class="py-24 lg:py-32">
+            <div class="reveal text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">Experience & Certifications
+                </h2>
+                <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">My professional experience and relevant
+                    certifications.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Experience Column -->
+                <div class="reveal">
+                    <h3 class="text-3xl font-bold text-white mb-8 flex items-center"><i
+                            class="fas fa-briefcase text-purple-400 mr-4"></i> Experience</h3>
+                    <div class="relative pl-8 border-l-2 border-purple-400/30 space-y-10">
+                        <!-- Timeline Item 1 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-purple-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Full Stack Developer & BDE</h4>
+                                <p class="gradient-text font-medium">Olympiad Examination Council (OEC)</p>
+                                <p class="text-sm text-gray-400 mt-1">2025 - Present | Full-time</p>
+                                <p class="text-gray-300 mt-3 text-sm leading-relaxed">
+                                    Working on end-to-end web development using React, Django, and MySQL. Involved in
+                                    project architecture, UI/UX optimization, and managing business development.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-3">
+                                    <a href="https://drive.google.com/file/d/1_pkfO-6l9UvPh3c77vUC4o6ptTaB-KUp/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Experience
+                                        Letter</a>
+                                    <a href="https://drive.google.com/file/d/1ljS1MUCYZkgeOW9vbYrnnw2XOKa80-oV/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">ID
+                                        Card</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 2 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-purple-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Web Development Internship</h4>
+                                <p class="gradient-text font-medium">Freelance & Internship Projects</p>
+                                <p class="text-sm text-gray-400 mt-1">2023 - 2024 | Internship</p>
+                                <p class="text-gray-300 mt-3 text-sm leading-relaxed">
+                                    Completed projects focusing on responsive design, modern JavaScript, and integration
+                                    with backend APIs using PHP and Django.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-3">
+                                    <a href="https://drive.google.com/file/d/10FWVxxyZiAexjPxen6RIy-r9hBioh-3O/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Completion
+                                        Letter</a>
+                                    <a href="https://drive.google.com/file/d/1w2rhOej9j6qEnY3wjpycMTL6IxzWAnPY/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Column -->
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <h3 class="text-3xl font-bold text-white mb-8 flex items-center"><i
+                            class="fas fa-certificate text-pink-400 mr-4"></i> Certifications</h3>
+                    <div class="relative pl-8 border-l-2 border-pink-400/30 space-y-10">
+                        <!-- Timeline Item 1 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Full Stack Web Development (UDEMY)</h4>
+                                <p class="gradient-text font-medium">Dr. Angela Yu, Developer and Lead Instructor</p>
+                                <p class="text-sm text-gray-400 mt-1">Sept. 17, 2025</p>
+                                <div class="mt-4">
+                                    <a href="https://drive.google.com/file/d/1y8oQKmFuniI3Tzm1LZfJJodD4intZ8Ri/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 2 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Full Stack Web Development</h4>
+                                <p class="gradient-text font-medium">Novitech</p>
+                                <p class="text-sm text-gray-400 mt-1">June 2025</p>
+                                <div class="mt-4">
+                                    <a href="https://drive.google.com/file/d/1bFcGyiXGKituk02i0UCG3u28Us0eG6XH/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 3 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Internship Completion Certificate</h4>
+                                <p class="gradient-text font-medium">Olympiad Examination Council</p>
+                                <p class="text-sm text-gray-400 mt-1">Sep 2025</p>
+                                <div class="mt-4">
+                                    <a href="https://drive.google.com/file/d/1w2rhOej9j6qEnY3wjpycMTL6IxzWAnPY/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 4 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Python course</h4>
+                                <p class="gradient-text font-medium">Besant Technologies</p>
+                                <p class="text-sm text-gray-400 mt-1">Feb 2025</p>
+                                <div class="mt-4">
+                                    <a href="https://drive.google.com/file/d/1fwsutJGvcMc6I_FIj1gWQnCSMvxmaSfd/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 5 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[1.6rem] top-1 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-900"></span>
+                            <div class="glass-card p-6">
+                                <h4 class="text-xl font-semibold text-white">Hackathon competition</h4>
+                                <p class="gradient-text font-medium">Jain College Of Engineering, Belgaum</p>
+                                <p class="text-sm text-gray-400 mt-1">April 2025</p>
+                                <div class="mt-4">
+                                    <a href="https://drive.google.com/file/d/1fbYAQNXjdNlVQMtQe8c11V43CCezTPAI/view?usp=sharing"
+                                        target="_blank"
+                                        class="px-4 py-2 text-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full shadow-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-300">Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 lg:py-32">
+            <div class="reveal text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text inline-block pb-2">Get in Touch</h2>
+                <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">Have a project in mind or just want to say hi?
+                    Feel free to reach out!</p>
+            </div>
+
+            <div class="glass-card p-8 md:p-12 lg:p-16 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Image -->
+                    <div>
+                        <img src="assets/images/contact1.png" alt="Contact" class="w-full h-auto object-contain"
+                            onerror="this.src='https://placehold.co/400x400/ffffff/1e003d?text=Contact+Me'; this.onerror=null;">
+                    </div>
+
+                    <!-- Form -->
+                    <form id="contact-form" class="space-y-6">
+                        <div class="relative">
+                            <input type="text" name="name" placeholder="Your Name" required
+                                class="w-full p-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200 peer">
+                            <label
+                                class="absolute left-4 -top-3.5 text-sm text-purple-400 bg-transparent px-1 transition-all duration-200 opacity-0 peer-placeholder-shown:opacity-0 peer-focus:opacity-100 peer-focus:-top-3.5"
+                                style="background-color: var(--glass-bg);">Name</label>
+                            <i class="fas fa-user absolute right-4 top-4 text-gray-400"></i>
+                        </div>
+                        <div class="relative">
+                            <input type="email" name="email" placeholder="Your Email" required
+                                class="w-full p-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200 peer">
+                            <label
+                                class="absolute left-4 -top-3.5 text-sm text-purple-400 bg-transparent px-1 transition-all duration-200 opacity-0 peer-placeholder-shown:opacity-0 peer-focus:opacity-100 peer-focus:-top-3.5"
+                                style="background-color: var(--glass-bg);">Email</label>
+                            <i class="fas fa-envelope absolute right-4 top-4 text-gray-400"></i>
+                        </div>
+                        <div class="relative">
+                            <input type="text" name="phone" placeholder="Your Phone (Optional)"
+                                class="w-full p-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200 peer">
+                            <label
+                                class="absolute left-4 -top-3.5 text-sm text-purple-400 bg-transparent px-1 transition-all duration-200 opacity-0 peer-placeholder-shown:opacity-0 peer-focus:opacity-100 peer-focus:-top-3.5"
+                                style="background-color: var(--glass-bg);">Phone</label>
+                            <i class="fas fa-phone-alt absolute right-4 top-4 text-gray-400"></i>
+                        </div>
+                        <div class="relative">
+                            <textarea name="message" rows="5" placeholder="Your Message" required
+                                class="w-full p-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200 peer"></textarea>
+                            <label
+                                class="absolute left-4 -top-3.5 text-sm text-purple-400 bg-transparent px-1 transition-all duration-200 opacity-0 peer-placeholder-shown:opacity-0 peer-focus:opacity-100 peer-focus:-top-3.5"
+                                style="background-color: var(--glass-bg);">Message</label>
+                            <i class="fas fa-comment-dots absolute right-4 top-4 text-gray-400"></i>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            Submit Message <i class="fa fa-paper-plane ml-2"></i>
+                        </button>
+
+                        <!-- Custom Success Message -->
+                        <div id="form-success-msg"
+                            class="hidden text-center p-4 rounded-lg bg-green-500/20 border border-green-500 text-green-300">
+                            Message sent successfully! Thank you.
+                        </div>
+                        <!-- Custom Error Message -->
+                        <div id="form-error-msg"
+                            class="hidden text-center p-4 rounded-lg bg-red-500/20 border border-red-500 text-red-300">
+                            Oops! Something went wrong. Please try again.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 mt-20">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-400">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Ritesh's Portfolio</h3>
+                    <p>Thank you for visiting. Connect with me over socials and let's build something amazing together.
+                    </p>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xl font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> Home</a></li>
+                        <li><a href="#about" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> About</a></li>
+                        <li><a href="#skills" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> Skills</a></li>
+                        <li><a href="#education" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> Education</a></li>
+                        <li><a href="#work" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> Work</a></li>
+                        <li><a href="#experience" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> Experience</a></li>
+                        <li><a href="#contact" class="hover:text-purple-400 transition-colors duration-200"><i
+                                    class="fas fa-chevron-right w-4 mr-1"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xl font-semibold text-white mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-phone w-5 text-purple-400 mr-2"></i> +91 8861220023</li>
+                        <li><i class="fas fa-envelope w-5 text-purple-400 mr-2"></i> riteshhonule@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt w-5 text-purple-400 mr-2"></i> Belgaum, India-590014</li>
+                    </ul>
+                    <div class="mt-6 flex space-x-6">
+                        <a href="https://www.linkedin.com/in/ritesh-honule-1b8976285/?originalSubdomain=in"
+                            target="_blank"
+                            class="text-gray-400 hover:text-purple-400 text-2xl transition-colors duration-200"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/riteshhonule/riteshhonule" target="_blank"
+                            class="text-gray-400 hover:text-purple-400 text-2xl transition-colors duration-200"><i
+                                class="fab fa-github"></i></a>
+                        <a href="mailto:riteshhonule@gmail.com"
+                            class="text-gray-400 hover:text-purple-400 text-2xl transition-colors duration-200"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://www.instagram.com/crypto_rack/" target="_blank"
+                            class="text-gray-400 hover:text-purple-400 text-2xl transition-colors duration-200"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center text-gray-500 border-t border-white/10 pt-8">
+                Designed by <i class="fa fa-heart text-pink-500"></i> Ritesh Honule
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#home" id="scroll-top"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white flex items-center justify-center text-xl shadow-lg hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // --- Skill Data ---
+            // const skills = [
+            //     { name: "React", icon: "fab fa-react", color: "#61DAFB" },
+            //     { name: "Django", icon: "fab fa-django", color: "#092E20" },
+            //     { name: "Python", icon: "fab fa-python", color: "#3776AB" },
+            //     { name: "SQLite", icon: "fas fa-database", color: "#003B57" },
+            //     { name: "Django Rest Framework", icon: "fas fa-cogs", color: "#A40000" },
+            //     { name: "HTML5", icon: "fab fa-html5", color: "#E34F26" },
+            //     { name: "CSS3", icon: "fab fa-css3-alt", color: "#1572B6" },
+            //     { name: "JavaScript", icon: "fab fa-js-square", color: "#F7DF1E" },
+            //     { name: "Bootstrap", icon: "fab fa-bootstrap", color: "#7952B3" },
+            //     { name: "MySQL", icon: "fas fa-database", color: "#4479A1" },
+            //     { name: "Netlify", icon: "fas fa-cloud-upload-alt", color: "#00C7B7" },
+            //     { name: "GitHub", icon: "fab fa-github", color: "#FFFFFF" },
+            //     { name: "WordPress", icon: "fab fa-wordpress", color: "#21759B" }
+            // ];
+            const skills = [
+                { name: "React", icon: "fab fa-react", color: "#61DAFB" },
+                { name: "Django", icon: "fas fa-leaf", color: "#092E20" },
+                { name: "Python", icon: "fab fa-python", color: "#3776AB" },
+                { name: "Flask", icon: "fas fa-flask", color: "#000000" },
+                { name: "SQLite", icon: "fas fa-database", color: "#003B57" },
+                { name: "Django Rest Framework", icon: "fas fa-cogs", color: "#A40000" },
+                { name: "HTML5", icon: "fab fa-html5", color: "#E34F26" },
+                { name: "CSS3", icon: "fab fa-css3-alt", color: "#1572B6" },
+                { name: "JavaScript", icon: "fab fa-js-square", color: "#F7DF1E" },
+                { name: "Bootstrap", icon: "fab fa-bootstrap", color: "#7952B3" },
+                { name: "MySQL", icon: "fas fa-database", color: "#4479A1" },
+                { name: "Solidity", icon: "fas fa-code", color: "#363636" },
+                { name: "Web3.js", icon: "fas fa-network-wired", color: "#F16822" },
+                { name: "Ethereum Sepolia Testnet", icon: "fab fa-ethereum", color: "#3C3C3D" },
+                { name: "MetaMask", icon: "fas fa-wallet", color: "#E2761B" },
+                { name: "PHP", icon: "fab fa-php", color: "#777BB4" },
+                { name: "Netlify", icon: "fas fa-cloud-upload-alt", color: "#00C7B7" },
+                { name: "GitHub", icon: "fab fa-github", color: "#FFFFFF" },
+                { name: "WordPress", icon: "fab fa-wordpress", color: "#21759B" }
+            ];
+
+
+            // --- Populate Skills ---
+            const skillsContainer = document.getElementById("skills-container");
+            if (skillsContainer) {
+                skills.forEach((skill, index) => {
+                    const delay = index * 100;
+                    const skillEl = document.createElement("div");
+                    skillEl.className = "glass-card p-4 flex flex-col items-center justify-center aspect-square reveal";
+                    skillEl.style.transitionDelay = `${delay}ms`;
+                    skillEl.innerHTML = `
+            <i class="${skill.icon} text-4xl md:text-5xl" style="color: ${skill.color};"></i>
+            <span class="mt-4 font-semibold text-white text-center text-sm md:text-base">${skill.name}</span>
+          `;
+                    skillsContainer.appendChild(skillEl);
+                });
+            }
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Close menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Typing Effect ---
+            // const typingText = document.getElementById("typing-text");
+            // const phrases = ["Python Development"];
+            const typingText = document.getElementById("typing-text");
+            const phrases = [
+                "Python Development",
+                "FullStack Development",
+                "Blockchain Technology",
+            ];
+
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            async function typeEffect() {
+                if (!typingText) return;
+                const currentPhrase = phrases[phraseIndex];
+                const delay = isDeleting ? 75 : 150;
+
+                typingText.textContent = currentPhrase.substring(0, charIndex);
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+
+                charIndex += isDeleting ? -1 : 1;
+                setTimeout(typeEffect, delay);
+            }
+            typeEffect();
+
+            // --- Scroll Animations (IntersectionObserver) ---
+            const revealElements = document.querySelectorAll(".reveal");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal-active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Scroll-to-Top Button Visibility ---
+            const scrollTopBtn = document.getElementById("scroll-top");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove("opacity-0", "pointer-events-none");
+                } else {
+                    scrollTopBtn.classList.add("opacity-0", "pointer-events-none");
+                }
+            });
+
+            // --- Navbar Active Link on Scroll ---
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('data-section') === id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-30% 0px -70% 0px" }); // Activate when section is in the middle 40% of viewport
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // --- EmailJS Form Handling ---
+            (function () {
+                // Use your public key
+                emailjs.init("IGdfF_vVimu91JxGw");
+            })();
+
+            const contactForm = document.getElementById("contact-form");
+            const successMsg = document.getElementById("form-success-msg");
+            const errorMsg = document.getElementById("form-error-msg");
+
+            if (contactForm) {
+                contactForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner animate-spin ml-2"></i>';
+
+                    successMsg.classList.add('hidden');
+                    errorMsg.classList.add('hidden');
+
+                    const formData = {
+                        name: this.name.value,
+                        email: this.email.value,
+                        phone: this.phone.value,
+                        message: this.message.value
+                    };
+
+                    // Use your Service ID and Template ID
+                    emailjs.send("service_3rbtlvg", "template_b8xwcub", formData)
+                        .then(function (response) {
+                            console.log("SUCCESS!", response.status, response.text);
+                            successMsg.classList.remove('hidden');
+                            contactForm.reset();
+                        }, function (error) {
+                            console.log("FAILED...", error);
+                            errorMsg.classList.remove('hidden');
+                        })
+                        .finally(function () {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = 'Submit Message <i class="fa fa-paper-plane ml-2"></i>';
+                        });
+                });
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
